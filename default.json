@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate preset for yoprotocol org",
+  "extends": [
+    "config:recommended",
+    "group:monorepos",
+    "group:recommended",
+    ":separateMajorReleases"
+  ],
+  "schedule": ["before 7am on monday"],
+  "timezone": "Europe/Sofia",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "branchConcurrentLimit": 10,
+  "packageRules": [
+    {
+      "description": "Group all patch updates into a single PR",
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "groupName": "all patch updates",
+      "groupSlug": "all-patch"
+    },
+    {
+      "description": "Group all minor updates into a single PR",
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor updates",
+      "groupSlug": "all-minor"
+    },
+    {
+      "description": "Major updates require dashboard approval",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

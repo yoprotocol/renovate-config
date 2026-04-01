@@ -12,6 +12,7 @@
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "branchConcurrentLimit": 10,
+  "minimumReleaseAge": "14 days",
   "packageRules": [
     {
       "description": "Group all patch updates into a single PR",
